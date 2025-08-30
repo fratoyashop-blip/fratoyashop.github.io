@@ -1,0 +1,138 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head> 
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
+    <title>FRATOYA</title>
+    <link rel="stylesheet" href="styledellogoprincipal.css">
+</head>
+<body>
+    <div class="video-section">
+    <video autoplay muted loop class="video-bg">
+        <source src="img/video.mp4" type="video/mp4"></div>
+        <!-- Opcional: añade formatos alternativos -->
+
+    <a href="FRATOTA.html" class="boton-logo">
+    <img src="img/fratoyashop.png" alt="titulo"></a>
+    <div class="menu-3d-1">
+    <a class="menu-item" href="TVS.html">indian"tvs"</a>
+    <a class="menu-item" href="accesorios.html">accesorios</a>
+    </div>
+    <div class="menu-3d">
+    <a class="menu-item" href="audioshop.html">CarAudio Shop</a>
+    <a class="menu-item" href="eventos.html">celulares</a>
+    </div>
+    <div class="galaxia"></div>
+    <div class="estrellas"></div>
+    <div class="nebulosa nebulosa-1"></div>
+    <div class="nebulosa nebulosa-2"></div>
+    <div class="polvo-espacial"></div>
+    <div class="centelleo"></div>
+    <div class="earth"></div></div>
+    <a href="FRATOTA.html" class="satelite">
+    <img src="img/satelite.png" alt="titulo"></a>
+    <script>
+        // Interactividad: Pausar rotación al hacer hover
+        const earth = document.querySelector('.earth');
+        earth.addEventListener('mouseenter', () => {
+            earth.style.animationPlayState = 'paused';
+        });
+        earth.addEventListener('mouseleave', () => {
+            earth.style.animationPlayState = 'running';
+        }); 
+        </script>
+
+    <div class="cursor"></div>
+    <script>
+        // CURSOR QUE DEJA ESTRELLAS
+        document.addEventListener('mousemove', (e) => {
+            // Mover cursor personalizado
+            const cursor = document.querySelector('.cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+
+            // Crear estrella en la posición del cursor
+            if (Math.random() > 0.3) { // Controla la densidad de estrellas
+                const estrella = document.createElement('div');
+                estrella.className = 'estrella-cursor';
+                estrella.style.left = e.clientX + 'px';
+                estrella.style.top = e.clientY + 'px';
+                
+                // Variación de tamaño y color
+                const tamaño = Math.random() * 4 + 2;
+                estrella.style.width = tamaño + 'px';
+                estrella.style.height = tamaño + 'px';
+                
+                // Color aleatorio (tonos celestes/blancos)
+                const colores = ['#ffffff', '#00ffff', '#a0ffff', '#d0ffff'];
+                estrella.style.background = colores[Math.floor(Math.random() * colores.length)];
+                
+                document.body.appendChild(estrella);
+
+                // Eliminar estrella después de la animación
+                setTimeout(() => {
+                    estrella.remove();
+                }, 1000);
+            }
+        });
+
+        // EFECTO DE EXPLOSIÓN AL HACER CLIC
+        document.addEventListener('click', (e) => {
+            const explosion = document.createElement('div');
+            explosion.className = 'explosion';
+            explosion.style.left = e.clientX + 'px';
+            explosion.style.top = e.clientY + 'px';
+            document.body.appendChild(explosion);
+
+            setTimeout(() => {
+                explosion.remove();
+            }, 500);
+        });
+
+        // EFECTO DE ATRACCIÓN (las estrellas siguen al cursor con retraso)
+        const estrellasFijas = [];
+        for (let i = 0; i < 20; i++) {
+            const estrella = document.createElement('div');
+            estrella.className = 'estrella-cursor';
+            estrella.style.position = 'fixed';
+            estrella.style.opacity = '0.7';
+            estrella.style.left = Math.random() * window.innerWidth + 'px';
+            estrella.style.top = Math.random() * window.innerHeight + 'px';
+            estrella.style.animation = 'none';
+            document.body.appendChild(estrella);
+            estrellasFijas.push({
+                element: estrella,
+                x: parseFloat(estrella.style.left),
+                y: parseFloat(estrella.style.top),
+                speed: Math.random() * 0.2 + 0.05
+            });
+        }
+
+        function seguirCursor() {
+            const cursor = document.querySelector('.cursor');
+            const cursorX = parseFloat(cursor.style.left);
+            const cursorY = parseFloat(cursor.style.top);
+            
+            estrellasFijas.forEach(estrella => {
+                const dx = cursorX - estrella.x;
+                const dy = cursorY - estrella.y;
+                
+                estrella.x += dx * estrella.speed;
+                estrella.y += dy * estrella.speed;
+                
+                estrella.element.style.left = estrella.x + 'px';
+                estrella.element.style.top = estrella.y + 'px';
+            });
+            
+            requestAnimationFrame(seguirCursor);
+        }
+        
+        seguirCursor();
+    </script>
+</body>
+    </div>
+    </video>
+</div>
+</body>
+</html>
+
