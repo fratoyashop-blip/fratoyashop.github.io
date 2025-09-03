@@ -493,3 +493,75 @@ img {
             filter: brightness(1.1) contrast(1.1);
             
         }
+nav.footer-nav {
+    background-color: #001f3f; /* azul marino */
+    padding: -50px -80px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+nav.footer-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-family: Arial, sans-serif;
+}
+
+nav.footer-nav ul li {
+    position: relative;
+    font-size: 0.5rem;
+}
+
+nav.footer-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    display: block;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+nav.footer-nav ul li a:hover {
+  background-color: #003366; /* azul más oscuro al pasar el mouse */
+}
+
+/* Submenú desplegable */
+nav.footer-nav ul li ul.submenu {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    background-color: #001f3f;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    min-width: 180px;
+    padding: 5px 0;
+    z-index: 1001;
+}
+
+nav.footer-nav ul li:hover ul.submenu {
+    display: block;
+}
+
+nav.footer-nav ul li ul.submenu li a {
+    padding: 8px 15px;
+    font-weight: normal;
+}
+
+nav.footer-nav ul li ul.submenu li a:hover {
+    background-color: #003366;
+}
+
+/* Para que el contenido no quede oculto tras la barra fija */
+body {
+    padding-bottom: 60px; /* altura aproximada de la barra */
+}
+
