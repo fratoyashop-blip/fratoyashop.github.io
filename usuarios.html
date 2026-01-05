@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuarios - Segundas</title>
+    <link rel="stylesheet" href="usuarios.css
+    "> 
+</head>
+<body>
+    <a href="index.html" class="boton-logo">
+        <img src="img/fratoya car audio_preview_rev_1.png" alt="titulo">
+    </a>
+    <div class="menu-3d">
+        <a href="audioshop.html">Audioshop</a>
+        <a href="eventos.html">Eventos</a>
+        <a href="TVS.html">Indian"tvs"</a>
+        <a href="Segundas.html">Segundas</a>
+    </div>
+
+    <section class="registro">
+        <h2>Estamos trabajando en ustedes</h2>
+        <form action="procesar_registro.php" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required><br><br>
+            
+            <button type="submit">Registrarse</button>
+        </form>
+        <p>¿en mantenimiento<a href="login.html">Inicia sesión</a></p>
+    </section>
+</body>
+</html>
